@@ -1,0 +1,7 @@
+RewriteEngine On
+# DO NOT REMOVE THIS LINE AND THE LINES BELOW SSL_REDIRECT:pingi.io
+RewriteCond %{HTTPS} off
+RewriteCond %{HTTP_HOST} (www\.)?pingi.io
+RewriteRule ^(.*) https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301, NE]
+# DO NOT REMOVE THIS LINE AND THE LINES ABOVE SSL_REDIRECT:pingi.io
+RewriteRule ^(.*)$ public/$1 [L]
